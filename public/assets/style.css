@@ -2242,13 +2242,69 @@ a:focus {
   color: #fff;
   background: #ec24d2;
 }
+.c-rich-text h1,
+.c-rich-text h2,
+.c-rich-text h3,
+.c-rich-text h4 {
+  color: #000;
+  font-weight: bold;
+}
+.c-rich-text h1 {
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+.c-rich-text h2,
+.c-rich-text h3,
+.c-rich-text h4 {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.c-rich-text p,
+.c-rich-text ol,
+.c-rich-text ul {
+  margin-bottom: 20px;
+}
+.c-rich-text ol {
+  list-style-type: decimal;
+}
+.c-rich-text strong {
+  font-weight: bold;
+}
+.c-rich-text em {
+  font-style: italic;
+}
+.c-rich-text img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+.c-rich-text hr {
+  border: 1px dashed #ec24d2;
+  width: 98%;
+  clear: both;
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+.c-rich-text small {
+  font-size: .85em;
+}
+.m-article {
+  margin-top: 20px;
+}
+.m-article__title {
+  font-size: 36px;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 .m-form {
   padding: 40px;
   margin-top: 10px;
   background-color: #e6e6e6;
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, #ccc 15px, #ccc 30px);
   display: block;
-  border: 1px solid #ccc;
+  border: 2px solid #000;
   border-radius: 10px;
   -webkit-transform: all .3s;
       -ms-transform: all .3s;
@@ -2279,8 +2335,8 @@ a:focus {
 .m-form__info {
   color: #fff;
   background: red;
-  min-width: 175px;
-  padding: 5px;
+  width: 209px;
+  padding: 3px 5px;
   margin-bottom: 10px;
   visibility: hidden;
   font-size: .75em;
@@ -2307,7 +2363,7 @@ a:focus {
 }
 .m-form__info.is-active {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.75;
   bottom: 100%;
 }
 .m-form__label {
@@ -2425,32 +2481,4 @@ a:focus {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
   }
-}
-svg {
-  font: 10px sans-serif;
-}
-path.line {
-  fill: none;
-  stroke: #666;
-  stroke-width: 1.5px;
-}
-path.area {
-  fill: #e7e7e7;
-}
-.axis {
-  shape-rendering: crispEdges;
-}
-.x.axis line {
-  stroke: #fff;
-}
-.x.axis .minor {
-  stroke-opacity: .5;
-}
-.x.axis path {
-  display: none;
-}
-.y.axis line,
-.y.axis path {
-  fill: none;
-  stroke: #000;
 }
