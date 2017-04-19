@@ -7,6 +7,7 @@ Starter code for transpiling ES2015 (including modules) with Babel, Gulp and Bro
 1. Clone the repo
 2. `npm install -g gulp` to install Gulp globally.
 3. `npm install` to resolve project dependencies.
+3. `bower install` to install frontend dependencies.
 
 # Using
 

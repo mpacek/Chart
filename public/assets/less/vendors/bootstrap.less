@@ -1,0 +1,50 @@
+// ------------------------------------------------
+// Bootstrap
+// ------------------------------------------------ //
+
+@bootstrap-path: "../../bower_components/bootstrap/less";
+
+@import '@{bootstrap-path}/variables';
+@import "@{bootstrap-path}/mixins.less";
+
+// Core styles
+// ------------------------------------------------
+@import "@{bootstrap-path}/utilities.less";
+@import "@{bootstrap-path}/grid.less";
+// Navbar
+@import "@{bootstrap-path}/forms.less";
+@import "@{bootstrap-path}/navs.less";
+@import "@{bootstrap-path}/navbar.less";
+
+// Local overwrites
+
+.navbar-inverse {
+    background-color: @color-black;
+    border: none;
+
+    .navbar-brand,
+    .navbar-nav > li > a {
+        color: @color-gray-light;
+    }
+}
+
+.navbar-nav {
+
+    > li {
+
+        a.active {
+            transition: background .3s;
+
+            & {
+                color: @color-white;
+                background-color: @color-brand-primary;
+            }
+
+            &:hover,
+            &:focus {
+                color: @color-white;
+                background-color: darken(@color-brand-primary, 10%);
+            }
+        }
+    }
+}

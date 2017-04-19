@@ -11,7 +11,7 @@ import ChartPage from './pages/chart';
 
 const app = (
     <Router history={hashHistory}>
-        <Redirect from="/" to="/info" />
+        <Redirect from="/" to="/chart" />
         <Route path="/" component={Layout}>
             <Route path="info" component={InfoPage} />
             <Route path="chart" component={ChartPage} />

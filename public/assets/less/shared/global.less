@@ -1,0 +1,29 @@
+// ------------------------------------------------
+// Global
+// ------------------------------------------------ //
+
+body {
+    color: @color-text;
+    font: normal @base-font-size / @base-line-heigh @font-family-primary;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: @color-link;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: @color-hover;
+    }
+
+    &:focus {
+        outline: 1px dotted @color-outline;
+    }
+}
+
+::selection {
+    color: @selection-color-text;
+    background: @selection-color-background;
+}

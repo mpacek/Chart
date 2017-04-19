@@ -1,0 +1,60 @@
+// ------------------------------------------------
+// Variables
+// ------------------------------------------------ //
+
+
+// LAYOUT
+// ------------------------------------------------
+
+@screen-desktop-width: 1170px;
+@global-layout-gutter: 15px;
+@global-layout-spacing: 20px;
+
+
+// TEXT
+// ------------------------------------------------
+
+// Font families
+@font-family-primary: Arial,Helvetica,sans-serif;
+
+// Base font size
+@base-font-size: 16px;
+@base-line-heigh: 1.5;
+
+// Font sizes
+// without px, to use with .font-size() mixin
+@font-size-xs: 10px;
+@font-size-sm: 12px;
+@font-size-md: 14px;
+@font-size-lg: 24px;
+@font-size-xl: 36px;
+
+
+// COLORS
+// ------------------------------------------------
+
+// Predefined colors
+@color-black: #000;
+@color-white: #fff;
+
+@color-gray-lighter: #eee;
+@color-gray-light: #ccc;
+@color-gray: #999;
+@color-gray-dark: #444;
+
+@color-1: #ec24d2;
+@color-2: #5ee064;
+
+// Brand colors
+@color-brand-primary: @color-1;
+@color-brand-secondary: @color-2;
+
+// Text
+@color-text: @color-black;
+@color-link: @color-brand-primary;
+@color-hover: darken(@color-brand-primary, 15%);
+@color-outline: @color-brand-primary;
+
+// Selection
+@selection-color-background: @color-brand-primary;
+@selection-color-text: @color-white;

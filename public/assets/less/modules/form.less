@@ -1,0 +1,156 @@
+// ------------------------------------------------
+// Form module
+// ------------------------------------------------ //
+
+.m-form {
+	padding: @global-layout-spacing * 2;
+	margin-top: @global-layout-spacing / 2;
+	background-color: lighten(@color-gray-light, 10%);
+	background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, @color-gray-light 15px, @color-gray-light 30px);
+	display: block;
+	border: 1px solid @color-gray-light;
+	border-radius: 10px;
+	transform: all .3s;
+	position: relative;
+	z-index: 1;
+
+	&.is-sent {
+		background-color: lighten(@color-brand-primary, 30%);
+		background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, lighten(@color-brand-primary, 20%) 15px, lighten(@color-brand-primary, 20%) 30px);
+
+		.m-form__form {
+			transform: translateX(300px);
+			opacity: 0;
+		}
+
+		.m-form__current-email {
+			display: inline-block;
+		}
+	}
+
+	&__form {
+		display: inline-block;
+		opacity: 1;
+		position: relative;
+		z-index: 1;
+		transition: all 1s;
+	}
+
+	&__info {
+		color: @color-white;
+		background: red;
+		min-width: 175px;
+		padding: 5px;
+		margin-bottom: 10px;
+		visibility: hidden;
+		font-size: .75em;
+		opacity: 0;
+		position: absolute;
+		bottom: 200%;
+		z-index: 2;
+		transition: all .3s;
+
+		&:after {
+			content: "";
+			width: 10px;
+			height: 10px;
+			margin-left: -5px;
+			background: red;
+			transform: rotate(45deg);
+			display: block;
+			position: absolute;
+			left: 50%;
+			bottom: -5px;
+			z-index: 10;
+		}
+
+		&.is-active {
+			visibility: visible;
+			opacity: 1;
+			bottom: 100%;
+		}
+	}
+
+	&__label {
+		margin-right: @global-layout-gutter / 3;
+		font-size: .85em;
+		color: @color-black;
+	}
+
+	&__email {
+		padding: 2px 5px;
+		border-radius: 5px;
+		border: 3px solid @color-black;
+		background: linear-gradient(#f6f6f, #eee);
+		outline: none;
+		transition: all .3s;
+
+		&:focus,
+		&:hover {
+			border-color: @color-brand-primary;
+			outline: none;
+			animation-name: bip;
+			animation-duration: .3s;
+		}
+	}
+
+	&__button {
+		margin-left: @global-layout-gutter / 3;
+		padding: 4px 10px;
+		border: none;
+		border-radius: 2em;
+		background: @color-black;
+		color: #fff;
+		transition: all .3s;
+		cursor: pointer;
+
+		&:focus,
+		&:hover {
+			background-color: @color-brand-primary;
+			outline: none;
+			animation-name: bip;
+			animation-duration: .3s;
+		}
+	}
+
+	&__current-email {
+		margin-left: @global-layout-gutter * 2;
+		display: none;
+		font-weight: bold;
+		animation-name: blink;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+	}
+}
+
+@keyframes bip {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	75% {
+		transform: scale(0.95);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes blink {
+	0% {
+		transform: scale(0.8);
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+
+	100% {
+		transform: scale(0.8);
+	}
+}

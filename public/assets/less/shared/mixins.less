@@ -1,0 +1,12 @@
+// ------------------------------------------------
+// Mixins
+// ------------------------------------------------ //
+
+
+// FONT SIZE
+// Usage: e.g. .font-size(13px), .font-size(@font-size-sm);
+.font-size(@font-size: @base-font-size) {
+	@rem: (unit(@font-size) / unit(@base-font-size));
+	font-size: @font-size;
+	font-size: ~"@{rem}rem";
+}
