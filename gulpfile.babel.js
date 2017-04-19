@@ -9,6 +9,14 @@ import watchify from 'watchify';
 import babelify from 'babelify';
 import uglify from 'gulp-uglify';
 import ifElse from 'gulp-if-else';
+import less from 'gulp-less';
+import path from 'path';
+import LessAutoprefix from 'less-plugin-autoprefix';
+
+// Less autoprefix configuration
+var autoprefix = new LessAutoprefix({
+    browsers: ['last 5 versions']
+});
 
 watchify.args.debug = true;
 
@@ -43,6 +51,17 @@ gulp.task('default', ['transpile']);
 
 gulp.task('transpile', ['lint'], () => bundle());
 
+gulp.task('less', () => {
+    return gulp.src('public/assets/less/**/*.less')
+        .pipe(less({
+            paths: [path.join(__dirname, 'less', 'includes')]
+        }))
+        .pipe(less({
+            plugins: [autoprefix]
+        }))
+        .pipe(gulp.dest('public/assets/'));
+});
+
 gulp.task('lint', () => {
     return gulp.src(['src/**/*.js', 'gulpfile.babel.js'])
         .pipe(eslint())
@@ -60,5 +79,6 @@ gulp.task('js-watch', ['transpile'], () => sync.reload());
 gulp.task('watch', ['serve'], () => {
     gulp.watch('src/**/*', ['js-watch'])
     gulp.watch('public/assets/style.css', sync.reload)
+    gulp.watch('public/assets/less/**/*.less', ['less'], sync.reload)
     gulp.watch('public/index.html', sync.reload)
 });
