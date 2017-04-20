@@ -6,10 +6,10 @@ export default class ChartPage extends React.Component {
     return (
         <div className="container">
             <article className="m-article m-article--chart">
-                <h1 className="m-article__title">Chart</h1>
+                <h1 className="m-article__title">Weather chart</h1>
             </article>
             <div className="m-article__content">
-                <ChartBox />
+                <ChartBox apiUrl="api/chart/charts.json" />
             </div>
         </div>
     )

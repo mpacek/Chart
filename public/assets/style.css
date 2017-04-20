@@ -2335,16 +2335,21 @@ a:focus {
 .m-form__info {
   color: #fff;
   background: red;
-  width: 209px;
-  padding: 3px 5px;
+  padding: 3px 10px;
   margin-bottom: 10px;
-  visibility: hidden;
   font-size: .75em;
-  opacity: 0;
+  opacity: 0.75;
+  border-radius: 5px;
   position: absolute;
-  bottom: 200%;
+  right: -25px;
+  bottom: 100%;
   z-index: 2;
-  transition: all .3s;
+  -webkit-animation-name: blink;
+          animation-name: blink;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .m-form__info:after {
   content: "";
@@ -2361,26 +2366,24 @@ a:focus {
   bottom: -5px;
   z-index: 10;
 }
-.m-form__info.is-active {
-  visibility: visible;
-  opacity: 0.75;
-  bottom: 100%;
-}
 .m-form__label {
   margin-right: 5px;
   font-size: .85em;
   color: #000;
 }
-.m-form__email {
+.m-form__input {
   padding: 2px 5px;
+  width: 200px;
+  margin-right: 5px;
+  height: 32px;
   border-radius: 5px;
   border: 3px solid #000;
   background: linear-gradient(#f6f6f 6f 6f, #eee);
   outline: none;
   transition: all .3s;
 }
-.m-form__email:focus,
-.m-form__email:hover {
+.m-form__input:focus,
+.m-form__input:hover {
   border-color: #ec24d2;
   outline: none;
   -webkit-animation-name: bip;
@@ -2389,7 +2392,6 @@ a:focus {
           animation-duration: .3s;
 }
 .m-form__button {
-  margin-left: 5px;
   padding: 4px 10px;
   border: none;
   border-radius: 2em;
@@ -2456,29 +2458,45 @@ a:focus {
 }
 @-webkit-keyframes blink {
   0% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
 }
 @keyframes blink {
   0% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
+}
+.m-chart-list__title {
+  margin-top: 20px;
+  font-weight: bold;
+}
+.m-chart-list__item {
+  margin-top: 10px;
+  background-color: #eee;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+.m-chart-list__date {
+  margin-right: 15px;
+}
+.m-chart-list__city {
+  margin-right: 15px;
 }
