@@ -38,11 +38,11 @@ export default class ChartBox extends React.Component {
     }
 
     _getCharts() {
-        return this.state.charts.reverse().map((chart) => {
+        return this.state.charts.map((chart) => {
             return <Chart
                 { ...chart }
                 key = { chart.id } />
-        });
+        }).reverse();
     }
 
     _fetchCharts() {
