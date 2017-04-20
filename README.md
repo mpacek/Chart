@@ -18,3 +18,5 @@ The project is currently setup to transpile code under the _/src_ folder using t
 All LESS/CSS files are placed in `public/assets/` folder
 
 Resulting code ends up in the `public` directory.
+
+DEMO PAGE: http://pacek.lh.pl/chart/ 
