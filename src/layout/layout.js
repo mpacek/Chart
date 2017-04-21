@@ -9,7 +9,7 @@ export default class Layout extends React.Component {
                 <nav className="navbar navbar-inverse navbar-static-top" role="navigation" aria-label="Main navigation">
                     <div className="container">
                         <h1 className="navbar-header">
-                            <a className="navbar-brand" href="/">Chart Testing Project</a>
+                            <a className="navbar-brand" href="/chart/">Chart Testing Project</a>
                         </h1>
                         <div className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">

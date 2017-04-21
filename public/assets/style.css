@@ -2332,6 +2332,15 @@ a:focus {
   z-index: 1;
   transition: all 1s;
 }
+.m-form__group {
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  .m-form__group {
+    display: block;
+    margin-bottom: 15px;
+  }
+}
 .m-form__info {
   color: #fff;
   background: red;
@@ -2370,6 +2379,11 @@ a:focus {
   margin-right: 5px;
   font-size: .85em;
   color: #000;
+}
+@media (max-width: 767px) {
+  .m-form__label {
+    display: block;
+  }
 }
 .m-form__input {
   padding: 2px 5px;

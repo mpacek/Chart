@@ -24,10 +24,14 @@ export default class ChartForm extends React.Component {
             <form onSubmit={this._handleSubmit} className="m-form">
                 <div className="m-form__form">
                     {messageNode}
-                    <label for="f-date" className="m-form__label">Starting date:</label>
-                    <input ref={c => this._date = c} id="f-date" className="m-form__input" type="text" placeholder="yyyy-mm-dd" />
-                    <label for="f-city" className="m-form__label">City:</label>
-                    <input ref={c => this._city = c} id="f-city" className="m-form__input" type="text" />
+                    <fieldset className="m-form__group">
+                        <label for="f-date" className="m-form__label">Starting date:</label>
+                        <input ref={c => this._date = c} id="f-date" className="m-form__input" type="text" placeholder="yyyy-mm-dd" />
+                    </fieldset>
+                    <fieldset className="m-form__group">
+                        <label for="f-city" className="m-form__label">City:</label>
+                        <input ref={c => this._city = c} id="f-city" className="m-form__input" type="text" />
+                    </fieldset>
                     <button className="m-form__button" type="submit">Show chart</button>
                 </div>
             </form>

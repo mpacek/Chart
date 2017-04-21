@@ -36,6 +36,15 @@
 		transition: all 1s;
 	}
 
+	&__group {
+		display: inline-block;
+
+		@media (max-width: @screen-xs-max) {
+	       	display: block;
+			margin-bottom: @global-layout-gutter;
+	    }
+	}
+
 	&__info {
 		color: @color-white;
 		background: red;
@@ -71,6 +80,10 @@
 		margin-right: @global-layout-gutter / 3;
 		font-size: .85em;
 		color: @color-black;
+
+		@media (max-width: @screen-xs-max) {
+	       	display: block;
+	    }
 	}
 
 	&__input {
