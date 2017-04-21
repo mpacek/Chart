@@ -1,16 +1,10 @@
 import React from 'react';
 
-export default class Chart extends React.Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-        return (
-            <li className="m-chart-list__item">
-                <span className="m-chart-list__date">{this.props.startDate}</span>
-                <span className="m-chart-list__city">{this.props.city}</span>
-            </li>
-        );
-    }
+export default function Chart(props) {
+    return (
+        <li className="m-chart-list__item">
+            <span className="m-chart-list__date">{props.startDate}</span>
+            <span className="m-chart-list__city">{props.city}</span>
+        </li>
+    );
 }
