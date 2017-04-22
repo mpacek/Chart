@@ -2350,7 +2350,7 @@ a:focus {
   opacity: 0.75;
   border-radius: 5px;
   position: absolute;
-  right: -25px;
+  right: -20px;
   bottom: 100%;
   z-index: 2;
   -webkit-animation-name: blink;
@@ -2498,7 +2498,7 @@ a:focus {
             transform: scale(0.9);
   }
 }
-.m-chart-list__title {
+.m-chart__title {
   margin-top: 20px;
   font-weight: bold;
 }

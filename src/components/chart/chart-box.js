@@ -28,7 +28,7 @@ export default class ChartBox extends React.Component {
                 <ChartForm addChart={this._addChart}/>
                 <Chart/>
                 <div className="m-chart-list">
-                    <h2 className="m-chart-list__title">History:</h2>
+                    <h2 className="m-chart__title">History:</h2>
                     <ul>
                         {charts}
                     </ul>
