@@ -2,6 +2,7 @@ import React from 'react';
 import jQuery from 'jquery';
 
 import ChartForm from './chart-form';
+import ChartItem from './chart-item';
 import Chart from './chart';
 
 export default class ChartBox extends React.Component {
@@ -25,8 +26,7 @@ export default class ChartBox extends React.Component {
         return(
             <div>
                 <ChartForm addChart={this._addChart}/>
-                <div className="m-chart"></div>
-
+                <Chart/>
                 <div className="m-chart-list">
                     <h2 className="m-chart-list__title">History:</h2>
                     <ul>
@@ -39,7 +39,7 @@ export default class ChartBox extends React.Component {
 
     _getCharts() {
         return this.state.charts.map((chart) => {
-            return <Chart
+            return <ChartItem
                 { ...chart }
                 key = { chart.id } />
         }).reverse();

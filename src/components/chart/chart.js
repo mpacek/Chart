@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Chart(props) {
+export default function Chart() {
     return (
-        <li className="m-chart-list__item">
-            <span className="m-chart-list__date">{props.startDate}</span>
-            <span className="m-chart-list__city">{props.city}</span>
-        </li>
+        <div className="m-chart">
+            <h1>Graph</h1>
+            <div id="graph"></div>
+        </div>
     );
 }

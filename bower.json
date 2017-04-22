@@ -1,12 +1,13 @@
 {
-    "name": "Cgart",
-    "version": "1.0.0",
-    "author": "m.pacek@onet.eu",
-    "description": "",
-    "main": "",
-    "moduleType": [],
-    "private": true,
-    "dependencies": {
-        "bootstrap": "~3.3.5"
-    }
+  "name": "Cgart",
+  "version": "1.0.0",
+  "author": "m.pacek@onet.eu",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  },
+  "devDependencies": {}
 }
