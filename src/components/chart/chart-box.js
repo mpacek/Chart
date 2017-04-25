@@ -3,7 +3,7 @@ import jQuery from 'jquery';
 
 import ChartForm from './chart-form';
 import ChartItem from './chart-item';
-import Chart from './chart';
+import ChartGraph from './chart-graph';
 
 export default class ChartBox extends React.Component {
     constructor() {
@@ -26,8 +26,11 @@ export default class ChartBox extends React.Component {
         return(
             <div>
                 <ChartForm addChart={this._addChart}/>
-                <Chart/>
-                <div className="m-chart-list">
+                <div className="u-spacing-top">
+                    <h2 className="m-chart__title">Graph:</h2>
+                    <ChartGraph/>
+                </div>
+                <div className="m-chart-list u-spacing-top">
                     <h2 className="m-chart__title">History:</h2>
                     <ul>
                         {charts}

@@ -2064,7 +2064,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   position: absolute;
 }
 .u-spacing-top {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 /**
  * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
@@ -2513,4 +2513,32 @@ a:focus {
 }
 .m-chart-list__city {
   margin-right: 15px;
+}
+.m-chart-graph__wrapper {
+  margin-top: 10px;
+  border: 2px solid #000;
+  text-align: center;
+  border-radius: 10px;
+}
+.m-chart-graph .line {
+  fill: none;
+  stroke: #ec24d2;
+  stroke-width: 5px;
+}
+.m-chart-graph .axis {
+  fill: #ec24d2;
+  opacity: 1;
+}
+.m-chart-graph .axis line,
+.m-chart-graph .axis path {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+.m-chart-graph .axis text {
+  font-size: 14px;
+}
+.m-chart-graph .y-grid .tick {
+  stroke: #ec24d2;
+  opacity: 1;
 }

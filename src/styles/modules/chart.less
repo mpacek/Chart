@@ -3,7 +3,6 @@
 // ------------------------------------------------ //
 
 .m-chart {
-
 	&__title {
 		margin-top: @global-layout-spacing;
 		font-weight: bold;
@@ -13,7 +12,6 @@
 	// ------------------------------------------------
 
 	&-list {
-
 		&__item {
 			margin-top: @global-layout-spacing / 2;
 			background-color: @color-gray-lighter;
@@ -21,12 +19,52 @@
 			border-radius: 10px;
 		}
 
-		&__date  {
+		&__date {
 			margin-right: @global-layout-gutter;
 		}
 
-		&__city  {
+		&__city {
 			margin-right: @global-layout-gutter;
+		}
+	}
+
+	// Chart graph
+	// ------------------------------------------------
+
+	&-graph {
+
+		&__wrapper {
+			margin-top: @global-layout-spacing / 2;
+			border: 2px solid @color-black;
+			text-align: center;
+			border-radius: 10px;
+		}
+
+		.line {
+			fill: none;
+			stroke: @color-brand-primary;
+			stroke-width: 5px;
+		}
+
+		.axis {
+			fill: @color-brand-primary;
+			opacity: 1;
+		}
+
+		.axis line,
+		.axis path {
+			fill: none;
+			stroke: none;
+			shape-rendering: crispEdges;
+		}
+
+		.axis text {
+			font-size: 14px;
+		}
+
+		.y-grid .tick {
+			stroke: @color-brand-primary;
+			opacity: 1;
 		}
 	}
 }
