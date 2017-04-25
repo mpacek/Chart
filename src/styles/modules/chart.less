@@ -32,8 +32,8 @@
 	// ------------------------------------------------
 
 	&-graph {
-
 		&__wrapper {
+			padding: @global-layout-spacing * 2 0;
 			margin-top: @global-layout-spacing / 2;
 			border: 2px solid @color-black;
 			text-align: center;
@@ -44,27 +44,39 @@
 			fill: none;
 			stroke: @color-brand-primary;
 			stroke-width: 5px;
+			position: relative;
 		}
 
 		.axis {
 			fill: @color-brand-primary;
 			opacity: 1;
+
+			line,
+			path {
+				fill: none;
+				stroke: @color-gray-light;
+				shape-rendering: crispEdges;
+			}
+
+			text {
+				font-size: 14px;
+			}
 		}
 
-		.axis line,
-		.axis path {
-			fill: none;
-			stroke: none;
-			shape-rendering: crispEdges;
-		}
-
-		.axis text {
-			font-size: 14px;
-		}
-
-		.y-grid .tick {
-			stroke: @color-brand-primary;
+		.y-grid {
+			stroke: @color-gray-light;
 			opacity: 1;
+
+			.domain {
+				stroke: none;
+			}
+
+			.tick {
+				line,
+				path {
+					stroke: @color-gray-light;
+				}
+			}
 		}
 	}
 }

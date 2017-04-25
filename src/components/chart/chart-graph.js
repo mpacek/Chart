@@ -1,5 +1,8 @@
 import React from 'react';
 import * as d3 from "d3";
+import ChartGraphDots from './chart-graph-dots';
+import ChartGraphGrid from './chart-graph-grid';
+import ChartGraphAxis from './chart-graph-axis';
 
 export default class ChartGraph extends React.Component {
 
@@ -7,61 +10,83 @@ export default class ChartGraph extends React.Component {
         super();
 
         this.state = {
-            width: 800,
-            height: 300,
+            width: 1100,
+            height: 250,
             chartId: 'graph-1'
         };
     }
 
     render() {
-        var data=[
-            {day:'02-11-2016',count:180},
-            {day:'02-12-2016',count:250},
-            {day:'02-13-2016',count:150},
-            {day:'02-14-2016',count:496},
-            {day:'02-15-2016',count:140},
-            {day:'02-16-2016',count:380},
-            {day:'02-17-2016',count:100},
-            {day:'02-18-2016',count:150}
+        let data=[
+            {day:'02-11-2016',count:36},
+            {day:'02-12-2016',count:25},
+            {day:'02-13-2016',count:24},
+            {day:'02-14-2016',count:18},
+            {day:'02-15-2016',count:30},
+            {day:'02-16-2016',count:33},
+            {day:'02-17-2016',count:35},
+            {day:'02-18-2016',count:36}
         ];
 
-        var margin = {top: 5, right: 50, bottom: 20, left: 50},
+        const margin = {top: 5, right: 50, bottom: 20, left: 50},
             w = this.state.width - (margin.left + margin.right),
             h = this.state.height - (margin.top + margin.bottom);
 
-        var parseDate = d3.timeParse("%m-%d-%Y");
+        const parseDate = d3.timeParse("%m-%d-%Y");
 
-        data.forEach(function (d) {
+        data.forEach((d) => {
             d.date = parseDate(d.day);
         });
-        var x = d3.scaleTime()
-            .domain(d3.extent(data, function (d) {
+
+        let x = d3.scaleTime()
+            .domain(d3.extent(data, (d) => {
                 return d.date;
             }))
             .rangeRound([0, w]);
 
-        var y = d3.scaleLinear()
-            .domain([0,d3.max(data,function(d){
-                return d.count+100;
+        let y = d3.scaleLinear()
+            .domain([0,d3.max(data, (d) => {
+                return d.count+10;
             })])
             .range([h, 0]);
 
-        var line = d3.line()
-            .curve(d3.curveCatmullRomOpen)
-            .x(function (d) {
+        const line = d3.line()
+            .x((d) => {
                 return x(d.date);
             })
-            .y(function (d) {
+            .y((d) => {
                 return y(d.count);
             });
 
-        var transform='translate(' + margin.left + ',' + margin.top + ')';
+        let transform='translate(' + margin.left + ',' + margin.top + ')';
+
+        let yAxis = d3.axisLeft()
+            .scale(y)
+            .ticks(5);
+
+        let xAxis = d3.axisBottom()
+           .scale(x)
+           .tickValues(data.map((d,i) => {
+               if(i>0)
+                   return d.date;
+           }).splice(1))
+           .ticks(4);
+
+        let yGrid = d3.axisLeft()
+           .scale(y)
+           .ticks(5)
+           .tickSize(-w, 0, 0)
+           .tickFormat("");
 
         return (
             <div className="m-chart-graph__wrapper">
                 <svg className="m-chart-graph" id={this.state.chartId} width={this.state.width} height={this.state.height}>
                     <g transform={transform}>
-                        <path className="line shadow" d={line(data)} strokeLinecap="round"/>
+                        <ChartGraphGrid h={h} grid={yGrid} gridType="y"/>
+                        <ChartGraphAxis h={h} axis={yAxis} axisType="y" />
+                        <ChartGraphAxis h={h} axis={xAxis} axisType="x"/>
+                        <path className="line" d={line(data)} strokeLinecap="round"/>
+                        <ChartGraphDots data={data} x={x} y={y}/>
                     </g>
                 </svg>
             </div>

@@ -27,11 +27,11 @@ export default class ChartBox extends React.Component {
             <div>
                 <ChartForm addChart={this._addChart}/>
                 <div className="u-spacing-top">
-                    <h2 className="m-chart__title">Graph:</h2>
+                    <h2 className="m-chart__title">Average temperatures [from: - to:] in [City]:</h2>
                     <ChartGraph/>
                 </div>
                 <div className="m-chart-list u-spacing-top">
-                    <h2 className="m-chart__title">History:</h2>
+                    <h2 className="m-chart__title">Search history:</h2>
                     <ul>
                         {charts}
                     </ul>

@@ -2515,6 +2515,7 @@ a:focus {
   margin-right: 15px;
 }
 .m-chart-graph__wrapper {
+  padding: 40px 0;
   margin-top: 10px;
   border: 2px solid #000;
   text-align: center;
@@ -2524,6 +2525,7 @@ a:focus {
   fill: none;
   stroke: #ec24d2;
   stroke-width: 5px;
+  position: relative;
 }
 .m-chart-graph .axis {
   fill: #ec24d2;
@@ -2532,13 +2534,20 @@ a:focus {
 .m-chart-graph .axis line,
 .m-chart-graph .axis path {
   fill: none;
-  stroke: none;
+  stroke: #ccc;
   shape-rendering: crispEdges;
 }
 .m-chart-graph .axis text {
   font-size: 14px;
 }
-.m-chart-graph .y-grid .tick {
-  stroke: #ec24d2;
+.m-chart-graph .y-grid {
+  stroke: #ccc;
   opacity: 1;
+}
+.m-chart-graph .y-grid .domain {
+  stroke: none;
+}
+.m-chart-graph .y-grid .tick line,
+.m-chart-graph .y-grid .tick path {
+  stroke: #ccc;
 }
