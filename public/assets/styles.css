@@ -2502,6 +2502,9 @@ a:focus {
   margin-top: 20px;
   font-weight: bold;
 }
+.m-chart-list {
+  margin-bottom: 40px;
+}
 .m-chart-list__item {
   margin-top: 10px;
   background-color: #eee;
