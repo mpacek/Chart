@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartBox from '../components/chart/chart-box';
+import Chart from '../components/chart/chart';
 
 export default class ChartPage extends React.Component {
     render() {
@@ -9,7 +9,7 @@ export default class ChartPage extends React.Component {
                     <h1 className="m-article__title">Weather chart</h1>
                 </article>
                 <div className="m-article__content">
-                    <ChartBox apiUrl="api/chart/charts.json" />
+                    <Chart apiUrl="api/chart/charts.json" />
                 </div>
             </div>
         )
