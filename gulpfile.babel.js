@@ -14,7 +14,7 @@ import path from 'path';
 import LessAutoprefix from 'less-plugin-autoprefix';
 
 // Less autoprefix configuration
-var autoprefix = new LessAutoprefix({
+const autoprefix = new LessAutoprefix({
     browsers: ['last 5 versions']
 });
 
@@ -47,7 +47,13 @@ function bundle() {
         .pipe(gulp.dest('public/assets/js'));
 }
 
+gulp.task('set-prod-node-env', function() {
+    return process.env.NODE_ENV = 'production';
+});
+
 gulp.task('default', ['transpile']);
+
+gulp.task('build', ['set-prod-node-env', 'transpile']);
 
 gulp.task('transpile', ['lint'], () => bundle());
 
