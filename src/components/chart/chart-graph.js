@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import jQuery from 'jquery';
 import * as d3 from "d3";
+
 import ChartGraphDots from './chart-graph-dots';
 import ChartGraphGrid from './chart-graph-grid';
 import ChartGraphAxis from './chart-graph-axis';
@@ -14,6 +17,26 @@ export default class ChartGraph extends React.Component {
             height: 250,
             chartId: 'graph-1'
         };
+    }
+
+    componentWillMount() {
+        var _self = this;
+
+        jQuery(window).on('resize', function() {
+            _self._updateSize();
+        });
+
+        this.setState({
+            width: this.state.width
+        });
+    }
+
+    componentDidMount() {
+        this._updateSize();
+    }
+
+    componentWillUnmount() {
+        jQuery(window).off('resize');
     }
 
     render() {
@@ -91,5 +114,20 @@ export default class ChartGraph extends React.Component {
                 </svg>
             </div>
         );
+    }
+
+    _updateSize() {
+        var node = ReactDOM.findDOMNode(this);
+        var parentWidth = jQuery(node).width();
+
+        if (this.state.width < parentWidth < this.state.width) {
+            this.setState({
+                width: parentWidth - 20
+            });
+        } else {
+            this.setState({
+                width: this.state.width
+            });
+        }
     }
 }
