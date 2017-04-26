@@ -10,7 +10,7 @@ export default class ChartGraph extends React.Component {
         super();
 
         this.state = {
-            width: 1100,
+            width: 1000,
             height: 250,
             chartId: 'graph-1'
         };
