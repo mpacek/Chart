@@ -5,7 +5,7 @@ import ChartForm from './chart-form';
 import ChartItem from './chart-item';
 import ChartGraph from './chart-graph';
 
-export default class ChartBox extends React.Component {
+export default class Chart extends React.Component {
     constructor() {
         super();
 
@@ -27,8 +27,8 @@ export default class ChartBox extends React.Component {
             <div>
                 <ChartForm addChart={this._addChart}/>
                 <div className="u-spacing-top">
-                    <h2 className="m-chart__title">Average temperatures [from: - to:] in [City]:</h2>
-                    <ChartGraph/>
+                    <h2 className="m-chart__title">Average temperatures [from: - to:] in [City:]:</h2>
+                    <ChartGraph apiUrl="api/chart/weather.json"/>
                 </div>
                 <div className="m-chart-list u-spacing-top">
                     <h2 className="m-chart__title">Search history:</h2>
@@ -74,6 +74,6 @@ export default class ChartBox extends React.Component {
     }
 }
 
-ChartBox.propTypes = {
+Chart.propTypes = {
     apiUrl: React.PropTypes.string.isRequired
 }

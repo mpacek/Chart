@@ -15,7 +15,8 @@ export default class ChartGraph extends React.Component {
         this.state = {
             width: 1000,
             height: 250,
-            chartId: 'graph-1'
+            chartId: 'graph-1',
+            data: []
         };
     }
 
@@ -29,6 +30,8 @@ export default class ChartGraph extends React.Component {
         this.setState({
             width: this.state.width
         });
+
+        this._fetchData();
     }
 
     componentDidMount() {
@@ -116,6 +119,19 @@ export default class ChartGraph extends React.Component {
         );
     }
 
+    _fetchData() {
+        jQuery.ajax({
+            method: 'GET',
+            url: this.props.apiUrl,
+            success: (data) => {
+                this.setState({
+                    data
+                });
+                console.log(data);
+            }
+        });
+    }
+
     _updateSize() {
         var node = ReactDOM.findDOMNode(this);
         var parentWidth = jQuery(node).width();
@@ -130,4 +146,8 @@ export default class ChartGraph extends React.Component {
             });
         }
     }
+}
+
+ChartGraph.propTypes = {
+    apiUrl: React.PropTypes.string.isRequired
 }
