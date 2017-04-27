@@ -38,27 +38,22 @@ export default class ChartGraph extends React.Component {
         this._updateSize();
     }
 
+    componentDidUpdate() {
+        this._fetchData();
+    }
+
     componentWillUnmount() {
         jQuery(window).off('resize');
     }
 
     render() {
-        let data=[
-            {day:'02-11-2016',count:36},
-            {day:'02-12-2016',count:25},
-            {day:'02-13-2016',count:24},
-            {day:'02-14-2016',count:18},
-            {day:'02-15-2016',count:30},
-            {day:'02-16-2016',count:33},
-            {day:'02-17-2016',count:35},
-            {day:'02-18-2016',count:36}
-        ];
+        let data = this.state.data;
 
         const margin = {top: 5, right: 50, bottom: 20, left: 50},
             w = this.state.width - (margin.left + margin.right),
             h = this.state.height - (margin.top + margin.bottom);
 
-        const parseDate = d3.timeParse("%m-%d-%Y");
+        const parseDate = d3.timeParse("%Y-%m-%d");
 
         data.forEach((d) => {
             d.date = parseDate(d.day);
@@ -92,11 +87,11 @@ export default class ChartGraph extends React.Component {
 
         let xAxis = d3.axisBottom()
            .scale(x)
-           .tickValues(data.map((d,i) => {
-               if(i>0)
-                   return d.date;
-           }).splice(1))
-           .ticks(4);
+           .tickValues(data.map((d) => {
+               return d.date;
+            }))
+           .tickFormat(d3.timeFormat("%Y-%m-%d"))
+           .ticks(1);
 
         let yGrid = d3.axisLeft()
            .scale(y)
@@ -109,7 +104,7 @@ export default class ChartGraph extends React.Component {
                 <svg className="m-chart-graph" id={this.state.chartId} width={this.state.width} height={this.state.height}>
                     <g transform={transform}>
                         <ChartGraphGrid h={h} grid={yGrid} gridType="y"/>
-                        <ChartGraphAxis h={h} axis={yAxis} axisType="y" />
+                        <ChartGraphAxis h={h} axis={yAxis} axisType="y"/>
                         <ChartGraphAxis h={h} axis={xAxis} axisType="x"/>
                         <path className="line" d={line(data)} strokeLinecap="round"/>
                         <ChartGraphDots data={data} x={x} y={y}/>
@@ -123,12 +118,25 @@ export default class ChartGraph extends React.Component {
         jQuery.ajax({
             method: 'GET',
             url: this.props.apiUrl,
+            data: "&q=" + this.props.city + "&days=" + this.props.days,
             success: (data) => {
-                this.setState({
-                    data
-                });
-                console.log(data);
+                this._buildDataModel(data);
             }
+        });
+    }
+
+    _buildDataModel(data) {
+        const dataModel = [];
+
+        data.forecast.forecastday.map((forecastday) => {
+            const newDay = {};
+            newDay.day = forecastday.date;
+            newDay.count = forecastday.day.avgtemp_c;
+            dataModel.push(newDay);
+        });
+
+        this.setState({
+            data: dataModel
         });
     }
 
@@ -149,5 +157,7 @@ export default class ChartGraph extends React.Component {
 }
 
 ChartGraph.propTypes = {
-    apiUrl: React.PropTypes.string.isRequired
+    apiUrl: React.PropTypes.string.isRequired,
+    days: React.PropTypes.string.isRequired,
+    city: React.PropTypes.string.isRequired
 }

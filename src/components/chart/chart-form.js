@@ -25,14 +25,14 @@ export default class ChartForm extends React.Component {
                 <div className="m-form__form">
                     {messageNode}
                     <fieldset className="m-form__group">
-                        <label for="f-date" className="m-form__label">Starting date:</label>
-                        <input ref={c => this._date = c} id="f-date" className="m-form__input" type="text" placeholder="yyyy-mm-dd" />
+                        <label for="f-days" className="m-form__label">Days (min 2 - max 10):</label>
+                        <input ref={c => this._days = c} id="f-days" className="m-form__input m-form__input--days" type="number" min="2" max="10" placeholder={this.props.days} />
                     </fieldset>
                     <fieldset className="m-form__group">
                         <label for="f-city" className="m-form__label">City:</label>
-                        <input ref={c => this._city = c} id="f-city" className="m-form__input" type="text" />
+                        <input ref={c => this._city = c} id="f-city" className="m-form__input" type="text" placeholder={this.props.city} />
                     </fieldset>
-                    <button className="m-form__button" type="submit">Show chart</button>
+                    <button className="m-form__button" type="submit">Show</button>
                 </div>
             </form>
         );
@@ -41,12 +41,9 @@ export default class ChartForm extends React.Component {
     _handleSubmit(event) {
         event.preventDefault();
 
-        if (this._date.value && this._city.value) {
+        if (this._days.value && this._city.value) {
 
-            this.props.addChart(this._date.value, this._city.value);
-
-            this._date.value = '';
-            this._city.value = '';
+            this.props.addChart(this._days.value, this._city.value);
 
             this.setState({
                 message: '',

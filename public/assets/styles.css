@@ -2405,6 +2405,9 @@ a:focus {
   -webkit-animation-duration: .3s;
           animation-duration: .3s;
 }
+.m-form__input--days {
+  width: 50px;
+}
 .m-form__button {
   padding: 4px 10px;
   border: none;
@@ -2510,12 +2513,6 @@ a:focus {
   background-color: #eee;
   padding: 10px 40px;
   border-radius: 10px;
-}
-.m-chart-list__date {
-  margin-right: 15px;
-}
-.m-chart-list__city {
-  margin-right: 15px;
 }
 .m-chart-graph__wrapper {
   padding: 40px 0;

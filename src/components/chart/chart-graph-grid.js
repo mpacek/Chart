@@ -20,7 +20,7 @@ export default class ChartGraphGrid extends React.Component {
         var node = ReactDOM.findDOMNode(this);
         d3.select(node).call(this.props.grid);
     }
-
+    
     render() {
         const translate = "translate(0,"+(this.props.h)+")";
         return (

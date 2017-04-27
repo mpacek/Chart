@@ -11,7 +11,9 @@ export default class Chart extends React.Component {
 
         this.state = {
             showCharts: false,
-            charts: []
+            charts: [],
+            days: '5',
+            city: 'Kraków'
         };
 
         this._addChart = this._addChart.bind(this);
@@ -23,16 +25,17 @@ export default class Chart extends React.Component {
 
     render() {
         const charts = this._getCharts();
+
         return(
             <div>
-                <ChartForm addChart={this._addChart}/>
+                <ChartForm addChart={this._addChart} days={this.state.days} city={this.state.city}/>
                 <div className="u-spacing-top">
-                    <h2 className="m-chart__title">Average temperatures [from: - to:] in [City:]:</h2>
-                    <ChartGraph apiUrl="api/chart/weather.json"/>
+                    <h2 className="m-chart__title">Next {this.state.days} days temperature in {this.state.city}:</h2>
+                    <ChartGraph apiUrl="http://api.apixu.com/v1/forecast.json?key=200e5a6efd364cadbe9220427172704" days={this.state.days} city={this.state.city} />
                 </div>
                 <div className="m-chart-list u-spacing-top">
                     <h2 className="m-chart__title">Search history:</h2>
-                    <ul>
+                    <ul className="c-rich-text">
                         {charts}
                     </ul>
                 </div>
@@ -60,16 +63,18 @@ export default class Chart extends React.Component {
         });
     }
 
-    _addChart(chartDate, chartCity) {
+    _addChart(chartDays, chartCity) {
 
         const chart = {
             id: this.state.charts.length + 1,
-            startDate: chartDate,
+            days: chartDays,
             city: chartCity
         };
 
         this.setState({
-            charts: this.state.charts.concat([chart])
+            charts: this.state.charts.concat([chart]),
+            days: chartDays,
+            city: chartCity
         });
     }
 }
