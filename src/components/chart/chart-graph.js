@@ -15,10 +15,7 @@ export default class ChartGraph extends React.Component {
         this.state = {
             width: 1000,
             height: 250,
-            chartId: 'graph-1',
-            data: [],
-            activeDate: '',
-            activeCity: ''
+            chartId: 'graph-1'
         };
     }
 
